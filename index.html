@@ -1,0 +1,1223 @@
+<!DOCTYPE HTML>
+<!--
+    Paradigm Shift by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+    Adaptación temática: TECNOLOGÍA — versión completa con marquee, dashboard y curiosidades
+-->
+<html lang="es">
+    <head>
+        <title>Tecnología | Historia, Evolución y Futuro</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Todo sobre tecnología: qué es, historia, evolución, tipos, tecnologías actuales, pioneros y el futuro digital." />
+        <meta name="keywords" content="tecnología, historia, evolución, IA, cloud, innovación, ciberseguridad" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+        <style>
+            /* ==========================================================
+               1. BASE
+               ========================================================== */
+            body, input, textarea, select, button { font-family: 'Rajdhani', sans-serif !important; }
+            h1, h2, h3, h4, h5, h6, .button, .marquee-top span { font-family: 'Orbitron', sans-serif !important; }
+            body {
+                background: #020509 !important;
+                color: #c9d6e8 !important;
+                overflow-x: hidden;
+            }
+            body::before {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background:
+                    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
+                    radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 45%),
+                    linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+                background-size: 100% 100%, 100% 100%, 55px 55px, 55px 55px;
+                z-index: -2;
+                pointer-events: none;
+            }
+            body::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background: repeating-linear-gradient(0deg,
+                    rgba(0, 212, 255, 0.03) 0px,
+                    rgba(0, 212, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 3px);
+                z-index: -1;
+                pointer-events: none;
+                animation: scanMove 8s linear infinite;
+            }
+            @keyframes scanMove { to { background-position: 0 100px; } }
+
+            /* ==========================================================
+               2. MARQUESINA SUPERIOR
+               ========================================================== */
+            .marquee-top {
+                position: fixed;
+                top: 0; left: 0; right: 0;
+                background: linear-gradient(90deg, #000a14, #003366, #000a14);
+                color: #00d4ff;
+                font-family: 'Share Tech Mono', monospace;
+                font-size: 0.85rem;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                padding: 10px 0;
+                overflow: hidden;
+                z-index: 9999;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.5);
+                box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            }
+            .marquee-top .marquee-track {
+                display: inline-block;
+                white-space: nowrap;
+                animation: marqueeMove 25s linear infinite;
+            }
+            .marquee-top .marquee-track span {
+                padding: 0 60px;
+                color: #00d4ff;
+                text-shadow: 0 0 10px #00d4ff;
+                font-weight: 700;
+            }
+            @keyframes marqueeMove {
+                from { transform: translateX(100%); }
+                to   { transform: translateX(-100%); }
+            }
+            body { padding-top: 42px; }
+
+            /* ==========================================================
+               3. BARRA DE PROGRESO
+               ========================================================== */
+            #progress-bar {
+                position: fixed;
+                top: 42px; left: 0;
+                height: 3px;
+                width: 0%;
+                background: linear-gradient(90deg, #00d4ff, #0066ff);
+                box-shadow: 0 0 15px #00d4ff;
+                z-index: 9998;
+            }
+
+            /* ==========================================================
+               4. TÍTULOS Y ENLACES
+               ========================================================== */
+            h1, h2, h3 { color: #fff !important; }
+            h2 { text-shadow: 0 0 20px rgba(0, 212, 255, 0.7) !important; letter-spacing: 4px; }
+            h2::after {
+                background: linear-gradient(90deg, #00d4ff, transparent) !important;
+                box-shadow: 0 0 20px #00d4ff;
+                height: 3px !important;
+            }
+            a { color: #00d4ff !important; transition: 0.3s; }
+            a:hover { color: #fff !important; text-shadow: 0 0 12px #00d4ff; }
+
+            /* ==========================================================
+               5. VENTANAS ESTILO SISTEMA OPERATIVO
+               ========================================================== */
+            .window {
+                background: rgba(0, 15, 30, 0.85);
+                border: 1px solid rgba(0, 212, 255, 0.4);
+                border-radius: 10px;
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.05);
+                backdrop-filter: blur(10px);
+                overflow: hidden;
+                margin: 25px 0;
+                transition: 0.4s;
+            }
+            .window:hover {
+                border-color: #00d4ff;
+                box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+            }
+            .window-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 15px;
+                background: linear-gradient(90deg, #001a33, #002a4d);
+                border-bottom: 1px solid rgba(0, 212, 255, 0.4);
+                font-family: 'Share Tech Mono', monospace;
+                font-size: 0.85rem;
+                color: #00d4ff;
+            }
+            .window-header .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+            .dot-r { background: #ff5f56; box-shadow: 0 0 8px #ff5f56; }
+            .dot-y { background: #ffbd2e; box-shadow: 0 0 8px #ffbd2e; }
+            .dot-g { background: #27c93f; box-shadow: 0 0 8px #27c93f; }
+            .window-title { margin-left: 12px; letter-spacing: 1px; }
+            .window-body {
+                padding: 22px 25px;
+                font-family: 'Share Tech Mono', monospace;
+                font-size: 0.95rem;
+                line-height: 1.7;
+                color: #b0e0ff;
+            }
+            .window-body p { margin-bottom: 15px; }
+            .window-body strong { color: #00d4ff; text-shadow: 0 0 8px #00d4ff; }
+            .window-body .prompt { color: #00ff88; margin-right: 8px; }
+            .window-body .cursor-t {
+                display: inline-block;
+                width: 8px; height: 16px;
+                background: #00ff88;
+                vertical-align: middle;
+                animation: blinkT 1s infinite;
+            }
+            @keyframes blinkT { 50% { opacity: 0; } }
+
+            /* ==========================================================
+               6. SECCIONES
+               ========================================================== */
+            #wrapper > section > .content {
+                background: rgba(0, 15, 30, 0.6) !important;
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(0, 212, 255, 0.2);
+                border-radius: 14px;
+                padding: 2rem !important;
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+                transition: 0.4s;
+            }
+            #wrapper > section > .content:hover {
+                border-color: rgba(0, 212, 255, 0.5);
+                box-shadow: 0 8px 55px rgba(0, 212, 255, 0.3);
+            }
+
+            /* ==========================================================
+               7. INTRO
+               ========================================================== */
+            .intro header {
+                background: linear-gradient(135deg, #000a14 0%, #002a4d 100%) !important;
+                position: relative;
+                overflow: hidden;
+            }
+            .intro header::before {
+                content: '';
+                position: absolute;
+                top: -50%; left: -50%;
+                width: 200%; height: 200%;
+                background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.2), transparent 30%);
+                animation: rotate 15s linear infinite;
+            }
+            @keyframes rotate { to { transform: rotate(360deg); } }
+            .intro h1 {
+                color: #00d4ff !important;
+                text-shadow: 0 0 25px #00d4ff, 0 0 60px rgba(0, 212, 255, 0.6) !important;
+                letter-spacing: 6px !important;
+                position: relative;
+                z-index: 2;
+            }
+            .intro p { color: #c9d6e8 !important; position: relative; z-index: 2; }
+            .intro .arrow { color: #00d4ff !important; }
+            .intro h1 .cursor-blink {
+                border-right: 3px solid #00d4ff;
+                padding-right: 8px;
+                animation: blinkCursor 1s infinite;
+            }
+            @keyframes blinkCursor { 50% { border-color: transparent; } }
+
+            /* ==========================================================
+               8. TIMELINE
+               ========================================================== */
+            .timeline-tech {
+                position: relative;
+                padding: 40px 20px;
+                margin: 25px 0;
+            }
+            .timeline-tech::before {
+                content: '';
+                position: absolute;
+                left: 50%; top: 0; bottom: 0;
+                width: 3px;
+                background: linear-gradient(180deg, #00d4ff, #0066ff, transparent);
+                box-shadow: 0 0 20px #00d4ff;
+                transform: translateX(-50%);
+            }
+            .tl-item {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 50%;
+                position: relative;
+                margin-bottom: 40px;
+            }
+            .tl-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-right: 0;
+                padding-left: 50%;
+            }
+            .tl-box {
+                background: linear-gradient(145deg, rgba(0, 25, 50, 0.9), rgba(0, 8, 20, 0.95));
+                border: 1px solid rgba(0, 212, 255, 0.4);
+                border-radius: 12px;
+                padding: 20px 22px;
+                max-width: 420px;
+                margin: 0 25px;
+                backdrop-filter: blur(6px);
+                transition: 0.4s;
+                font-family: 'Share Tech Mono', monospace;
+            }
+            .tl-box:hover {
+                transform: scale(1.04);
+                border-color: #00d4ff;
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+            }
+            .tl-box h3 {
+                color: #00d4ff !important;
+                font-size: 1.05rem;
+                margin-bottom: 6px;
+                letter-spacing: 2px;
+            }
+            .tl-box .year {
+                color: #7ec8ff;
+                font-weight: 700;
+                font-size: 0.85rem;
+                display: block;
+                margin-bottom: 8px;
+            }
+            .tl-box p { font-size: 0.9rem; color: #b0e0ff; line-height: 1.6; }
+            .tl-dot {
+                position: absolute;
+                left: 50%; top: 25px;
+                width: 18px; height: 18px;
+                background: #00d4ff;
+                border-radius: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 15px #00d4ff, 0 0 30px #00d4ff;
+                z-index: 2;
+                animation: pulseDot 2s infinite;
+            }
+            @keyframes pulseDot {
+                0%, 100% { box-shadow: 0 0 15px #00d4ff, 0 0 30px #00d4ff; }
+                50%      { box-shadow: 0 0 25px #00d4ff, 0 0 55px #00d4ff; }
+            }
+
+            /* ==========================================================
+               9. MARQUEE TECH (con !important para evitar conflictos)
+               ========================================================== */
+            .tech-marquee {
+                overflow: hidden !important;
+                background: linear-gradient(90deg, rgba(0,20,40,0.95), rgba(0,40,80,0.95), rgba(0,20,40,0.95)) !important;
+                border: 1px solid rgba(0, 212, 255, 0.5) !important;
+                border-radius: 12px !important;
+                padding: 18px 0 !important;
+                margin: 30px 0 !important;
+                position: relative !important;
+                box-shadow: 0 0 35px rgba(0, 212, 255, 0.3) !important;
+                width: 100% !important;
+                display: block !important;
+            }
+            .tech-marquee::before,
+            .tech-marquee::after {
+                content: '';
+                position: absolute;
+                top: 0; bottom: 0;
+                width: 80px;
+                z-index: 2;
+                pointer-events: none;
+            }
+            .tech-marquee::before {
+                left: 0;
+                background: linear-gradient(90deg, #020509, transparent);
+            }
+            .tech-marquee::after {
+                right: 0;
+                background: linear-gradient(-90deg, #020509, transparent);
+            }
+            .tech-marquee-track {
+                display: inline-block !important;
+                white-space: nowrap !important;
+                animation: techScroll 40s linear infinite !important;
+                font-family: 'Share Tech Mono', monospace !important;
+            }
+            .tech-marquee-track span {
+                padding: 0 30px !important;
+                color: #00d4ff !important;
+                font-size: 1rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 2px !important;
+                text-shadow: 0 0 10px rgba(0, 212, 255, 0.9) !important;
+                display: inline-block !important;
+            }
+            @keyframes techScroll {
+                from { transform: translateX(0); }
+                to   { transform: translateX(-50%); }
+            }
+            .tech-marquee:hover .tech-marquee-track {
+                animation-play-state: paused;
+            }
+
+            /* ==========================================================
+               10. DASHBOARD
+               ========================================================== */
+            .dash-grid {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+                gap: 18px !important;
+                margin: 30px 0 !important;
+            }
+            .dash-card {
+                background: linear-gradient(145deg, rgba(0, 25, 50, 0.95), rgba(0, 8, 20, 0.98)) !important;
+                border: 1px solid rgba(0, 212, 255, 0.5) !important;
+                border-radius: 14px !important;
+                padding: 24px 15px !important;
+                text-align: center !important;
+                position: relative !important;
+                overflow: hidden !important;
+                transition: 0.4s !important;
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.2) !important;
+            }
+            .dash-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: -100%;
+                width: 100%; height: 2px;
+                background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+                animation: dashScan 3s linear infinite;
+            }
+            @keyframes dashScan { to { left: 100%; } }
+            .dash-card:hover {
+                transform: translateY(-6px) !important;
+                border-color: #00d4ff !important;
+                box-shadow: 0 10px 35px rgba(0, 212, 255, 0.6) !important;
+            }
+            .dash-icon {
+                font-size: 2rem !important;
+                margin-bottom: 12px !important;
+                display: block !important;
+                filter: drop-shadow(0 0 12px #00d4ff) !important;
+            }
+            .dash-num {
+                font-family: 'Orbitron', sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: 900 !important;
+                color: #00d4ff !important;
+                text-shadow: 0 0 20px #00d4ff !important;
+                line-height: 1.1 !important;
+                display: block !important;
+            }
+            .dash-label {
+                margin-top: 10px !important;
+                font-size: 0.72rem !important;
+                letter-spacing: 1.5px !important;
+                text-transform: uppercase !important;
+                color: #7ec8ff !important;
+                line-height: 1.4 !important;
+                display: block !important;
+            }
+
+            /* ==========================================================
+               11. CURIOSIDADES
+               ========================================================== */
+            .curio-title {
+                font-family: 'Orbitron', sans-serif !important;
+                color: #00d4ff !important;
+                font-size: 1.25rem !important;
+                letter-spacing: 3px !important;
+                margin: 40px 0 20px !important;
+                text-align: center !important;
+                text-shadow: 0 0 15px rgba(0, 212, 255, 0.8) !important;
+                display: block !important;
+            }
+            .curio-grid {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+                gap: 18px !important;
+                margin-top: 20px !important;
+            }
+            .curio-card {
+                background: linear-gradient(145deg, rgba(0, 20, 45, 0.95), rgba(0, 5, 15, 0.98)) !important;
+                border: 1px solid rgba(0, 212, 255, 0.4) !important;
+                border-radius: 14px !important;
+                padding: 22px 20px !important;
+                position: relative !important;
+                overflow: hidden !important;
+                transition: 0.4s !important;
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.15) !important;
+            }
+            .curio-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.15), transparent 60%);
+                opacity: 0;
+                transition: 0.4s;
+                pointer-events: none;
+            }
+            .curio-card:hover::before { opacity: 1; }
+            .curio-card:hover {
+                transform: translateY(-8px) scale(1.02) !important;
+                border-color: #00d4ff !important;
+                box-shadow: 0 15px 45px rgba(0, 212, 255, 0.6) !important;
+            }
+            .curio-icon {
+                font-size: 2.2rem !important;
+                margin-bottom: 12px !important;
+                display: block !important;
+                filter: drop-shadow(0 0 12px #00d4ff) !important;
+                transition: 0.4s;
+            }
+            .curio-card:hover .curio-icon {
+                transform: scale(1.15) rotate(-5deg);
+            }
+            .curio-card h4 {
+                font-family: 'Orbitron', sans-serif !important;
+                color: #00d4ff !important;
+                font-size: 1rem !important;
+                letter-spacing: 1.5px !important;
+                margin-bottom: 10px !important;
+                display: block !important;
+            }
+            .curio-card p {
+                font-size: 0.9rem !important;
+                color: #b0e0ff !important;
+                line-height: 1.65 !important;
+                display: block !important;
+            }
+            .curio-card p strong {
+                color: #00d4ff !important;
+                text-shadow: 0 0 8px #00d4ff !important;
+            }
+
+            /* ==========================================================
+               12. TARJETAS TECH
+               ========================================================== */
+            .tech-cards {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+                gap: 20px !important;
+                margin: 25px 0 !important;
+            }
+            .tech-card {
+                background: linear-gradient(145deg, rgba(0, 25, 50, 0.9), rgba(0, 8, 20, 0.95)) !important;
+                border: 1px solid rgba(0, 212, 255, 0.35) !important;
+                border-radius: 14px !important;
+                padding: 25px 22px !important;
+                position: relative !important;
+                overflow: hidden !important;
+                transition: 0.4s !important;
+                font-family: 'Share Tech Mono', monospace !important;
+            }
+            .tech-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: -100%;
+                width: 100%; height: 3px;
+                background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+                animation: scan 3s linear infinite;
+            }
+            @keyframes scan { to { left: 100%; } }
+            .tech-card:hover {
+                transform: translateY(-8px) !important;
+                border-color: #00d4ff !important;
+                box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5) !important;
+            }
+            .tech-card .tc-icon {
+                font-size: 2.2rem !important;
+                color: #00d4ff !important;
+                text-shadow: 0 0 20px #00d4ff !important;
+                margin-bottom: 12px !important;
+            }
+            .tech-card h3 {
+                color: #fff !important;
+                font-size: 1rem !important;
+                margin-bottom: 8px !important;
+                letter-spacing: 2px !important;
+            }
+            .tech-card p { font-size: 0.9rem !important; color: #a8c0d8 !important; line-height: 1.6 !important; }
+
+            /* ==========================================================
+               13. ESTADÍSTICAS
+               ========================================================== */
+            .stats-tech {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+                gap: 20px !important;
+                margin-top: 25px !important;
+            }
+            .stat-item {
+                text-align: center !important;
+                padding: 30px 15px !important;
+                border: 1px solid rgba(0, 212, 255, 0.4) !important;
+                border-radius: 14px !important;
+                background: linear-gradient(145deg, rgba(0, 25, 50, 0.7), rgba(0, 8, 20, 0.95)) !important;
+                transition: 0.3s !important;
+                font-family: 'Share Tech Mono', monospace !important;
+            }
+            .stat-item:hover {
+                border-color: #00d4ff !important;
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.6) !important;
+                transform: translateY(-6px) !important;
+            }
+            .stat-num {
+                font-family: 'Orbitron', sans-serif !important;
+                font-size: 2rem !important;
+                font-weight: 900 !important;
+                color: #00d4ff !important;
+                text-shadow: 0 0 25px #00d4ff !important;
+            }
+            .stat-label {
+                margin-top: 10px !important;
+                font-size: 0.8rem !important;
+                letter-spacing: 2px !important;
+                text-transform: uppercase !important;
+                color: #7ec8ff !important;
+            }
+
+            /* ==========================================================
+               14. BOTONES
+               ========================================================== */
+            input[type="submit"], input[type="reset"], button, .button {
+                background: transparent !important;
+                color: #00d4ff !important;
+                border: 2px solid #00d4ff !important;
+                box-shadow: 0 0 15px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.1);
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-family: 'Orbitron', sans-serif !important;
+                transition: 0.3s !important;
+            }
+            input[type="submit"]:hover, input[type="reset"]:hover,
+            button:hover, .button:hover {
+                background: #00d4ff !important;
+                color: #020509 !important;
+                box-shadow: 0 0 35px #00d4ff, 0 0 60px rgba(0, 212, 255, 0.5);
+                transform: translateY(-3px);
+            }
+            .button.primary { background: #00d4ff !important; color: #020509 !important; }
+            .button.primary:hover {
+                background: #fff !important;
+                border-color: #fff !important;
+                box-shadow: 0 0 40px #fff, 0 0 80px #00d4ff;
+            }
+
+            /* ==========================================================
+               15. FORMULARIO
+               ========================================================== */
+            input[type="text"], input[type="email"], textarea, select {
+                background: rgba(0, 15, 30, 0.9) !important;
+                border: 1px solid rgba(0, 212, 255, 0.4) !important;
+                color: #b0e0ff !important;
+                font-family: 'Share Tech Mono', monospace !important;
+                border-radius: 8px !important;
+                transition: 0.3s;
+            }
+            input:focus, textarea:focus, select:focus {
+                border-color: #00d4ff !important;
+                box-shadow: 0 0 25px rgba(0, 212, 255, 0.7) !important;
+                outline: none !important;
+            }
+            input::placeholder, textarea::placeholder { color: #5577aa !important; }
+
+            /* ==========================================================
+               16. REDES
+               ========================================================== */
+            ul.icons li a {
+                color: #00d4ff !important;
+                text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+                transition: 0.3s;
+            }
+            ul.icons li a:hover {
+                color: #fff !important;
+                text-shadow: 0 0 25px #00d4ff, 0 0 45px #00d4ff;
+                transform: translateY(-3px) scale(1.15);
+            }
+
+            /* ==========================================================
+               17. GALERÍA
+               ========================================================== */
+            .gallery a {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                border: 1px solid rgba(0, 212, 255, 0.25);
+                transition: 0.4s;
+            }
+            .gallery a::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), transparent 60%);
+                opacity: 0;
+                transition: 0.4s;
+            }
+            .gallery a:hover {
+                border-color: #00d4ff;
+                box-shadow: 0 0 35px rgba(0, 212, 255, 0.7);
+                transform: scale(1.02);
+            }
+            .gallery a:hover::after { opacity: 1; }
+            .gallery a img { transition: 0.5s; }
+            .gallery a:hover img { transform: scale(1.08); }
+
+            /* ==========================================================
+               18. CURSOR PERSONALIZADO
+               ========================================================== */
+            @media (min-width: 769px) {
+                body, a, button, input, textarea, .button { cursor: none !important; }
+                .cursor-dot, .cursor-halo {
+                    position: fixed;
+                    top: 0; left: 0;
+                    pointer-events: none;
+                    z-index: 10000;
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .cursor-dot {
+                    width: 8px; height: 8px;
+                    background: #00d4ff;
+                    box-shadow: 0 0 12px #00d4ff, 0 0 25px #00d4ff;
+                }
+                .cursor-halo {
+                    width: 42px; height: 42px;
+                    border: 1px solid rgba(0, 212, 255, 0.6);
+                    transition: transform 0.2s ease, width 0.3s, height 0.3s, background 0.3s;
+                }
+                .cursor-halo.hover {
+                    width: 65px; height: 65px;
+                    background: rgba(0, 212, 255, 0.15);
+                    border-color: #00d4ff;
+                }
+            }
+            @media (max-width: 768px) {
+                .cursor-dot, .cursor-halo { display: none; }
+            }
+
+            /* ==========================================================
+               19. CANVAS FUGACES
+               ========================================================== */
+            #shooting-canvas {
+                position: fixed;
+                inset: 0;
+                width: 100%; height: 100%;
+                z-index: 0;
+                pointer-events: none;
+            }
+            #wrapper, .marquee-top { position: relative; z-index: 2; }
+            .marquee-top { z-index: 9999; }
+
+            /* ==========================================================
+               20. IMÁGENES Y VARIOS
+               ========================================================== */
+            .image.fill, .image.main {
+                border-radius: 14px;
+                overflow: hidden;
+                border: 1px solid rgba(0, 212, 255, 0.3);
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.25);
+                transition: 0.4s;
+            }
+            .image.fill:hover, .image.main:hover {
+                box-shadow: 0 0 60px rgba(0, 212, 255, 0.6);
+                border-color: #00d4ff;
+            }
+
+            ::-webkit-scrollbar { width: 10px; }
+            ::-webkit-scrollbar-track { background: #020509; }
+            ::-webkit-scrollbar-thumb {
+                background: linear-gradient(180deg, #00d4ff, #0066ff);
+                border-radius: 10px;
+                box-shadow: 0 0 10px #00d4ff;
+            }
+            ::selection { background: #00d4ff; color: #020509; }
+
+            /* ==========================================================
+               21. RESPONSIVE
+               ========================================================== */
+            @media (max-width: 768px) {
+                .timeline-tech::before { left: 20px; }
+                .tl-item, .tl-item:nth-child(even) {
+                    justify-content: flex-start;
+                    padding-left: 50px;
+                    padding-right: 0;
+                }
+                .tl-dot { left: 20px; }
+                .tl-box { margin: 0; }
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <!-- CANVAS FUGACES -->
+        <canvas id="shooting-canvas"></canvas>
+
+        <!-- CURSOR -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-halo"></div>
+
+        <!-- MARQUESINA -->
+        <div class="marquee-top">
+            <div class="marquee-track">
+                <span>[ SISTEMA ACTIVO ]</span>
+                <span>💻 TECNOLOGÍA</span>
+                <span>⚡ IA · CLOUD · CIBERSEGURIDAD</span>
+                <span>🚀 HISTORIA · EVOLUCIÓN · FUTURO</span>
+                <span>🌐 BLOCKCHAIN · IoT · 5G</span>
+                <span>[ CONEXIÓN ESTABLE ]</span>
+            </div>
+        </div>
+
+        <!-- BARRA DE PROGRESO -->
+        <div id="progress-bar"></div>
+
+        <div id="wrapper">
+
+            <!-- ================= INTRO ================= -->
+                <section class="intro">
+                    <header>
+                        <h1 id="typingTitle"><span class="cursor-blink"></span></h1>
+                        <p>Un viaje por la <strong>historia</strong>, la <strong>evolución</strong> y el <strong>futuro</strong> del conocimiento aplicado. Desde la rueda hasta la inteligencia artificial.</p>
+                        <ul class="actions">
+                            <li><a href="#first" class="arrow scrolly"><span class="label">Siguiente</span></a></li>
+                        </ul>
+                    </header>
+                    <div class="content">
+                        <span class="image fill" data-position="center">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Circuito tecnológico" />
+                        </span>
+                    </div>
+                </section>
+
+            <!-- ================= QUÉ ES ================= -->
+                <section id="first">
+                    <header><h2>¿Qué es la Tecnología?</h2></header>
+                    <div class="content">
+                        <div class="window">
+                            <div class="window-header">
+                                <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+                                <span class="window-title">definicion.txt</span>
+                            </div>
+                            <div class="window-body">
+                                <p><span class="prompt">></span> Cargando definición<span class="cursor-t"></span></p>
+                                <p><strong>La tecnología</strong> es el conjunto de conocimientos, técnicas, herramientas y procesos que el ser humano desarrolla para transformar su entorno y satisfacer sus necesidades.</p>
+                                <p>No es solo computadoras: es también el <strong>lenguaje</strong>, la <strong>escritura</strong>, la <strong>agricultura</strong>, la <strong>medicina</strong> y cualquier creación humana que amplíe nuestras capacidades.</p>
+                                <p><span class="prompt">></span> Etimología: del griego <em>téchne</em> (arte, oficio) y <em>logos</em> (estudio, tratado). La tecnología es el <strong>estudio del hacer</strong>: cómo aplicamos el conocimiento para resolver problemas reales.</p>
+                            </div>
+                        </div>
+                        <span class="image main">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80" alt="Centro de datos" />
+                        </span>
+                    </div>
+                </section>
+
+            <!-- ================= HISTORIA ================= -->
+                <section>
+                    <header><h2>Historia y Evolución</h2></header>
+                    <div class="content">
+                        <p><strong>La tecnología</strong> ha acompañado al ser humano desde sus orígenes. Cada gran salto tecnológico transformó la forma en que vivimos, trabajamos y nos comunicamos.</p>
+
+                        <div class="timeline-tech">
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Edad de Piedra</h3>
+                                    <span class="year">2.500.000 a.C.</span>
+                                    <p>El ser humano crea herramientas de piedra, domina el fuego y desarrolla el lenguaje hablado.</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Antigüedad</h3>
+                                    <span class="year">3000 a.C.</span>
+                                    <p>Nace la escritura, la rueda con eje, la metalurgia y las grandes civilizaciones.</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Imprenta</h3>
+                                    <span class="year">1440</span>
+                                    <p>Gutenberg revoluciona la difusión del conocimiento con la imprenta moderna.</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Revolución Industrial</h3>
+                                    <span class="year">1760 - 1840</span>
+                                    <p>La máquina de vapor y la electricidad transforman la producción y el transporte.</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Era Digital</h3>
+                                    <span class="year">1950 - 2000</span>
+                                    <p>Computadoras, internet y telefonía móvil conectan el mundo entero.</p>
+                                </div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-box">
+                                    <h3>Era de la IA</h3>
+                                    <span class="year">2000 - Presente</span>
+                                    <p>Inteligencia artificial, blockchain, cloud y computación cuántica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- ================= ÁREAS CLAVE ================= -->
+                <section id="areas-clave">
+                    <header><h2>Áreas Clave de la Tecnología</h2></header>
+                    <div class="content">
+                        <p><strong>La tecnología moderna</strong> se divide en múltiples disciplinas que trabajan juntas para transformar el mundo.</p>
+
+                        <!-- MARQUEE TECH -->
+                        <div class="tech-marquee">
+                            <div class="tech-marquee-track">
+                                <span>🐍 Python</span><span>⚛️ React</span><span>🟨 JavaScript</span>
+                                <span>🟢 Node.js</span><span>🐳 Docker</span><span>☁️ AWS</span>
+                                <span>🐧 Linux</span><span>🔀 Git</span><span>⚡ Vite</span>
+                                <span>🧩 TypeScript</span><span>🦀 Rust</span><span>🐘 PostgreSQL</span>
+                                <span>🔥 Firebase</span><span>🧠 TensorFlow</span><span>☕ Java</span>
+                                <span>🐹 Go</span><span>💠 C++</span><span>🎯 Kotlin</span>
+                                <span>🐍 Python</span><span>⚛️ React</span><span>🟨 JavaScript</span>
+                                <span>🟢 Node.js</span><span>🐳 Docker</span><span>☁️ AWS</span>
+                                <span>🐧 Linux</span><span>🔀 Git</span><span>⚡ Vite</span>
+                                <span>🧩 TypeScript</span><span>🦀 Rust</span><span>🐘 PostgreSQL</span>
+                            </div>
+                        </div>
+
+                        <!-- DASHBOARD -->
+                        <div class="dash-grid">
+                            <div class="dash-card">
+                                <div class="dash-icon">💻</div>
+                                <div class="dash-num" data-target="500">0</div>
+                                <div class="dash-label">Millones de líneas de código</div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-icon">🌐</div>
+                                <div class="dash-num" data-target="1200">0</div>
+                                <div class="dash-label">Millones de usuarios online</div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-icon">🖥️</div>
+                                <div class="dash-num" data-target="300">0</div>
+                                <div class="dash-label">Miles de servidores activos</div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-icon">⚡</div>
+                                <div class="dash-num" data-target="999">0</div>
+                                <div class="dash-label">% Uptime garantizado</div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-icon">💾</div>
+                                <div class="dash-num" data-target="50">0</div>
+                                <div class="dash-label">TB de datos por segundo</div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-icon">🛡️</div>
+                                <div class="dash-num" data-target="247">0</div>
+                                <div class="dash-label">Soporte 24/7 global</div>
+                            </div>
+                        </div>
+
+                        <!-- CURIOSIDADES -->
+                        <h3 class="curio-title">💡 Curiosidades del Mundo Tech</h3>
+                        <div class="curio-grid">
+                            <div class="curio-card">
+                                <div class="curio-icon">🦋</div>
+                                <h4>El primer "bug"</h4>
+                                <p>En 1947, Grace Hopper encontró una polilla real atrapada en un relé de la computadora Mark II. Desde entonces, los errores se llaman <strong>"bugs"</strong>.</p>
+                            </div>
+                            <div class="curio-card">
+                                <div class="curio-icon">☕</div>
+                                <h4>La primera webcam</h4>
+                                <p>En 1991, en Cambridge, una cámara apuntaba a una cafetera para que los científicos supieran cuándo había café listo. Fue la <strong>primera webcam del mundo</strong>.</p>
+                            </div>
+                            <div class="curio-card">
+                                <div class="curio-icon">🌐</div>
+                                <h4>El primer dominio</h4>
+                                <p><strong>symbolics.com</strong> fue el primer dominio registrado de la historia, el 15 de marzo de 1985. ¡Sigue activo hoy!</p>
+                            </div>
+                            <div class="curio-card">
+                                <div class="curio-icon">📱</div>
+                                <h4>Primer smartphone</h4>
+                                <p>El <strong>IBM Simon</strong> (1994) fue el primer teléfono con pantalla táctil y aplicaciones. Pesaba 500 gramos y costaba 1.100 dólares.</p>
+                            </div>
+                            <div class="curio-card">
+                                <div class="curio-icon">📊</div>
+                                <h4>Datos imparable</h4>
+                                <p>El <strong>90% de todos los datos</strong> del mundo se generaron en los últimos 2 años. Se estima que en 2025 se crearán 180 zettabytes.</p>
+                            </div>
+                            <div class="curio-card">
+                                <div class="curio-icon">🚀</div>
+                                <h4>La era digital</h4>
+                                <p>La primera página web de la historia (<strong>info.cern.ch</strong>) sigue online desde 1991, creada por Tim Berners-Lee en el CERN.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            <!-- ================= TECNOLOGÍAS ACTUALES ================= -->
+                <section>
+                    <header><h2>Tecnologías Actuales</h2></header>
+                    <div class="content">
+                        <div class="window">
+                            <div class="window-header">
+                                <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+                                <span class="window-title">tech_list.json</span>
+                            </div>
+                            <div class="window-body">
+                                <p><span class="prompt">></span> Cargando tecnologías emergentes<span class="cursor-t"></span></p>
+                                <p>Estas son las tecnologías que están <strong>redefiniendo industrias enteras</strong> y creando nuevas oportunidades cada día.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-cards">
+                            <div class="tech-card"><div class="tc-icon">🤖</div><h3>Inteligencia Artificial</h3><p>Modelos que aprenden, predicen y generan contenido. Transforma salud, educación y empresas.</p></div>
+                            <div class="tech-card"><div class="tc-icon">☁️</div><h3>Cloud Computing</h3><p>Servicios y datos accesibles desde cualquier lugar. Base de la economía digital moderna.</p></div>
+                            <div class="tech-card"><div class="tc-icon">🔗</div><h3>Blockchain</h3><p>Registros descentralizados, seguros y transparentes. Revoluciona finanzas y contratos.</p></div>
+                            <div class="tech-card"><div class="tc-icon">📡</div><h3>IoT</h3><p>Millones de dispositivos conectados entre sí. Ciudades y hogares inteligentes.</p></div>
+                            <div class="tech-card"><div class="tc-icon">🛡️</div><h3>Ciberseguridad</h3><p>Protección de datos y sistemas frente a amenazas cada vez más sofisticadas.</p></div>
+                            <div class="tech-card"><div class="tc-icon">🌐</div><h3>5G / 6G</h3><p>Conectividad ultrarrápida para un mundo hiperconectado en tiempo real.</p></div>
+                            <div class="tech-card"><div class="tc-icon">🧬</div><h3>Biotecnología</h3><p>Edición genética, medicina personalizada y nuevas terapias revolucionarias.</p></div>
+                            <div class="tech-card"><div class="tc-icon">⚛️</div><h3>Computación Cuántica</h3><p>Cálculos imposibles para las computadoras actuales, resueltos en segundos.</p></div>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- ================= GALERÍA ================= -->
+                <section>
+                    <header><h2>Galería Tecnológica</h2></header>
+                    <div class="content">
+                        <div class="window">
+                            <div class="window-header">
+                                <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+                                <span class="window-title">gallery.view</span>
+                            </div>
+                            <div class="window-body">
+                                <p><span class="prompt">></span> Abriendo galería visual<span class="cursor-t"></span></p>
+                            </div>
+                        </div>
+                        <div class="gallery">
+                            <a href="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" class="landscape"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                            <a href="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1600&q=80"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                            <a href="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                            <a href="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1600&q=80" class="landscape"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                            <a href="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80" class="landscape"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                            <a href="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80"><img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80" alt="" /></a>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- ================= ESTADÍSTICAS ================= -->
+                <section>
+                    <header><h2>La Tecnología en Números</h2></header>
+                    <div class="content">
+                        <p><strong>Datos que muestran</strong> el impacto de la tecnología en el mundo actual.</p>
+                        <div class="stats-tech">
+                            <div class="stat-item"><div class="stat-num" data-target="5500000000">0</div><div class="stat-label">Usuarios de Internet</div></div>
+                            <div class="stat-item"><div class="stat-num" data-target="75000000000">0</div><div class="stat-label">Dispositivos IoT</div></div>
+                            <div class="stat-item"><div class="stat-num" data-target="200000000">0</div><div class="stat-label">Sitios web</div></div>
+                            <div class="stat-item"><div class="stat-num" data-target="1991">0</div><div class="stat-label">Nace la WWW</div></div>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- ================= FUTURO ================= -->
+                <section>
+                    <header><h2>El Futuro</h2></header>
+                    <div class="content">
+                        <div class="window">
+                            <div class="window-header">
+                                <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+                                <span class="window-title">future.predict</span>
+                            </div>
+                            <div class="window-body">
+                                <p><span class="prompt">></span> Analizando tendencias<span class="cursor-t"></span></p>
+                                <p>Nos dirigimos hacia un mundo donde la <strong>computación cuántica</strong> resolverá en segundos problemas que hoy tomarían años.</p>
+                                <p>La <strong>IA general</strong> podría igualar la inteligencia humana, y la <strong>exploración espacial comercial</strong> llevará a la humanidad más lejos que nunca.</p>
+                                <p>El reto no será solo tecnológico, sino también <strong>ético</strong>: usar estas herramientas para construir un futuro más justo, sostenible y humano.</p>
+                            </div>
+                        </div>
+                        <ul class="actions">
+                            <li><a href="#" class="button primary large">Explorar más</a></li>
+                            <li><a href="#" class="button large">Volver arriba</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+            <!-- ================= CONTACTO ================= -->
+                <section>
+                    <header><h2>Contáctanos</h2></header>
+                    <div class="content">
+                        <p><strong>¿Te apasiona la tecnología?</strong> Escríbenos y recibe artículos, novedades y curiosidades sobre el mundo tecnológico.</p>
+                        <form>
+                            <div class="fields">
+                                <div class="field half"><input type="text" placeholder="Nombre" /></div>
+                                <div class="field half"><input type="email" placeholder="Correo electrónico" /></div>
+                                <div class="field"><textarea placeholder="¿Qué tema tecnológico te interesa más?" rows="7"></textarea></div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Enviar mensaje" class="button primary" /></li>
+                            </ul>
+                        </form>
+                    </div>
+                    <footer>
+                        <ul class="items">
+                            <li><h3>Email</h3><a href="#">info@tecnologia.world</a></li>
+                            <li><h3>Teléfono</h3><a href="#">+1 (000) 000-0000</a></li>
+                            <li><h3>Ubicación</h3><span>El mundo digital, 404</span></li>
+                            <li>
+                                <h3>Redes</h3>
+                                <ul class="icons">
+                                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                                    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                                    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                    <li><a href="#" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                                    <li><a href="#" class="icon brands fa-discord"><span class="label">Discord</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </footer>
+                </section>
+
+            <div class="copyright">&copy; 2025 Tecnología · Plantilla base: <a href="https://html5up.net">HTML5 UP</a>.</div>
+
+        </div>
+
+        <!-- ================= SCRIPTS ORIGINALES ================= -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+        <!-- ================= SCRIPTS EXTRA ================= -->
+        <script>
+            /* TYPEWRITER */
+            document.addEventListener('DOMContentLoaded', () => {
+                const el = document.querySelector('#typingTitle .cursor-blink');
+                const text = 'Tecnología';
+                let i = 0;
+                (function type() {
+                    if (i <= text.length) {
+                        el.textContent = text.substring(0, i);
+                        i++;
+                        setTimeout(type, 130);
+                    }
+                })();
+            });
+
+            /* CURSOR */
+            if (window.matchMedia('(min-width: 769px)').matches) {
+                const dot = document.querySelector('.cursor-dot');
+                const halo = document.querySelector('.cursor-halo');
+                document.addEventListener('mousemove', e => {
+                    dot.style.left = e.clientX + 'px';
+                    dot.style.top = e.clientY + 'px';
+                    halo.style.left = e.clientX + 'px';
+                    halo.style.top = e.clientY + 'px';
+                });
+                document.querySelectorAll('a, button, input, textarea, .button').forEach(el => {
+                    el.addEventListener('mouseenter', () => halo.classList.add('hover'));
+                    el.addEventListener('mouseleave', () => halo.classList.remove('hover'));
+                });
+            }
+
+            /* PROGRESO */
+            const progress = document.getElementById('progress-bar');
+            window.addEventListener('scroll', () => {
+                const h = document.documentElement.scrollHeight - window.innerHeight;
+                progress.style.width = (window.scrollY / h) * 100 + '%';
+            });
+
+            /* FUGACES */
+            (function () {
+                const c = document.getElementById('shooting-canvas');
+                const x = c.getContext('2d');
+                const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+                resize();
+                window.addEventListener('resize', resize);
+                let m = [];
+                (function spawn() {
+                    m.push({
+                        x: Math.random() * c.width * 0.5,
+                        y: Math.random() * c.height * 0.3,
+                        len: 100 + Math.random() * 120,
+                        speed: 7 + Math.random() * 6,
+                        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.25,
+                        life: 1
+                    });
+                    setTimeout(spawn, 2000 + Math.random() * 3500);
+                })();
+                (function draw() {
+                    x.clearRect(0, 0, c.width, c.height);
+                    m.forEach((p, i) => {
+                        p.x += Math.cos(p.angle) * p.speed;
+                        p.y += Math.sin(p.angle) * p.speed;
+                        p.life -= 0.006;
+                        const g = x.createLinearGradient(p.x, p.y, p.x - Math.cos(p.angle) * p.len, p.y - Math.sin(p.angle) * p.len);
+                        g.addColorStop(0, `rgba(0, 212, 255, ${p.life})`);
+                        g.addColorStop(1, 'rgba(0, 212, 255, 0)');
+                        x.beginPath();
+                        x.strokeStyle = g;
+                        x.lineWidth = 2;
+                        x.moveTo(p.x, p.y);
+                        x.lineTo(p.x - Math.cos(p.angle) * p.len, p.y - Math.sin(p.angle) * p.len);
+                        x.stroke();
+                        if (p.life <= 0 || p.y > c.height || p.x > c.width) m.splice(i, 1);
+                    });
+                    requestAnimationFrame(draw);
+                })();
+            })();
+
+            /* CONTADORES ESTADÍSTICAS */
+            const nums = document.querySelectorAll('.stat-num');
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        const el = e.target;
+                        const target = +el.dataset.target;
+                        let cur = 0;
+                        const inc = target / 100;
+                        const upd = () => {
+                            cur += inc;
+                            if (cur < target) {
+                                el.textContent = Math.floor(cur).toLocaleString();
+                                requestAnimationFrame(upd);
+                            } else el.textContent = target.toLocaleString();
+                        };
+                        upd();
+                        obs.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            nums.forEach(n => obs.observe(n));
+
+            /* CONTADORES DASHBOARD */
+            const dashNums = document.querySelectorAll('.dash-num');
+            const dashObs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        const el = e.target;
+                        const target = +el.dataset.target;
+                        let cur = 0;
+                        const inc = target / 80;
+                        const upd = () => {
+                            cur += inc;
+                            if (cur < target) {
+                                el.textContent = Math.floor(cur).toLocaleString();
+                                requestAnimationFrame(upd);
+                            } else {
+                                el.textContent = target.toLocaleString();
+                            }
+                        };
+                        upd();
+                        dashObs.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.4 });
+            dashNums.forEach(n => dashObs.observe(n));
+        </script>
+
+    </body>
+</html>
